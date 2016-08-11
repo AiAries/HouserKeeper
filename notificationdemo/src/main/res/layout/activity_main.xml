@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jsonarry.notificationdemo.MainActivity">
+
+    <Button
+            android:onClick="update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="update notification" />
+    <Button
+            android:onClick="notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="普通通知" />
+    <Button
+            android:onClick="stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止" />
+    <Button
+            android:onClick="start_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启服务" />
+    <Button
+            android:onClick="stop_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止服务" />
+</LinearLayout>

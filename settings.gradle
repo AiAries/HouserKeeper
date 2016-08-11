@@ -1,1 +1,1 @@
-include ':app', ':viewanimationdemo', ':frameanim', ':readdbdata', ':common_dialog', ':app_login', ':viewpage_fragment', ':viewpagerdemo', ':mediaplayer_and_service'
+include ':app', ':viewanimationdemo', ':frameanim', ':readdbdata', ':common_dialog', ':app_login', ':viewpage_fragment', ':viewpagerdemo', ':mediaplayer_and_service', ':mdedia_player_and_service', ':notificationdemo'
