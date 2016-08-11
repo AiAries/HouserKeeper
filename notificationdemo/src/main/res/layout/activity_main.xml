@@ -13,23 +13,23 @@
             android:layout_height="wrap_content"
             android:text="update notification" />
     <Button
-            android:onClick="notify"
+            android:onClick="notify1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="普通通知" />
     <Button
-            android:onClick="stop"
+            android:onClick="notify2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="停止" />
-    <Button
+            android:text="带pendingIntent的通知启动activity" />
+    <!--<Button
             android:onClick="start_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开启服务" />
+            android:text="带pendingIntent的通知启动activity" />
     <Button
             android:onClick="stop_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="停止服务" />
+            android:text="停止服务" />-->
 </LinearLayout>
