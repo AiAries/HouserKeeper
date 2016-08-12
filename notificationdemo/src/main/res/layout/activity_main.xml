@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,28 +7,39 @@
     tools:context="com.example.jsonarry.notificationdemo.MainActivity">
 
     <Button
-            android:onClick="update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="update notification" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="update"
+        android:text="update notification" />
+
     <Button
-            android:onClick="notify1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="普通通知" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="notify1"
+        android:text="普通通知" />
+
     <Button
-            android:onClick="notify2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="带pendingIntent的通知启动activity" />
-    <!--<Button
-            android:onClick="start_service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="带pendingIntent的通知启动activity" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="notify2"
+        android:text="带pendingIntent的通知启动activity" />
+
     <Button
-            android:onClick="stop_service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="停止服务" />-->
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cancel"
+        android:text="取消某个通知" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cancel_all"
+        android:text="取消之前发出的所有通知" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="start_regular"
+        android:text="在清单文件中配置启动一个activity" />
+
 </LinearLayout>
