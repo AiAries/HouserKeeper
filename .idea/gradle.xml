@@ -9,9 +9,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CircularReveal-master" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app_login" />
+            <option value="$PROJECT_DIR$/circualreveal" />
             <option value="$PROJECT_DIR$/common_dialog" />
+            <option value="$PROJECT_DIR$/commonview" />
             <option value="$PROJECT_DIR$/frameanim" />
             <option value="$PROJECT_DIR$/mdedia_player_and_service" />
             <option value="$PROJECT_DIR$/mediaplayer_and_service" />
@@ -21,14 +24,18 @@
             <option value="$PROJECT_DIR$/viewanimationdemo" />
             <option value="$PROJECT_DIR$/viewpage_fragment" />
             <option value="$PROJECT_DIR$/viewpagerdemo" />
+            <option value="$PROJECT_DIR$/webView" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CircularReveal-master" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app_login" />
+            <option value="$PROJECT_DIR$/circualreveal" />
             <option value="$PROJECT_DIR$/common_dialog" />
+            <option value="$PROJECT_DIR$/commonview" />
             <option value="$PROJECT_DIR$/frameanim" />
             <option value="$PROJECT_DIR$/mdedia_player_and_service" />
             <option value="$PROJECT_DIR$/mediaplayer_and_service" />
@@ -38,6 +45,7 @@
             <option value="$PROJECT_DIR$/viewanimationdemo" />
             <option value="$PROJECT_DIR$/viewpage_fragment" />
             <option value="$PROJECT_DIR$/viewpagerdemo" />
+            <option value="$PROJECT_DIR$/webView" />
           </set>
         </option>
       </GradleProjectSettings>

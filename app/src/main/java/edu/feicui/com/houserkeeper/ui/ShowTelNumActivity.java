@@ -10,19 +10,20 @@ import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import java.io.File;
-import java.util.ArrayList;
-
 import edu.feicui.com.houserkeeper.adapter.TelNumAdapter;
 import edu.feicui.com.houserkeeper.db.DBRead;
 import edu.feicui.com.houserkeeper.entity.TelNumInfo;
+
+import java.io.File;
+import java.util.ArrayList;
 
 public class ShowTelNumActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
 
         //获取上个界面传递过来的值
         Intent intent = getIntent();
