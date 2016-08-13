@@ -1,11 +1,7 @@
 package com.example.jsonarry.package_manager_demo;
 
-import android.app.Activity;
 import android.app.ListActivity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -13,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -36,10 +31,10 @@ public class MainActivity extends ListActivity
         listView.setAdapter(adapter);
         String packageCodePath = getPackageCodePath();
         Log.d(TAG, "onCreate: "+packageCodePath);
-        //注册广播
-        IntentFilter fileter = new IntentFilter();
-        fileter.addAction(getPackageName());
-        registerReceiver(new MyReceiver(), fileter);
+//        //注册广播
+//        IntentFilter fileter = new IntentFilter();
+//        fileter.addAction(getPackageName());
+//        registerReceiver(new MyReceiver(), fileter);
     }
 
     @Override
@@ -54,26 +49,15 @@ public class MainActivity extends ListActivity
     }
 
 
-    class MyReceiver extends BroadcastReceiver
-    {
-        @Override
-        public void onReceive(Context context, Intent intent)
-        {
-            Toast.makeText(MainActivity.this, "onreceive", Toast.LENGTH_SHORT).show();
-            if (intent.getAction().equals(getPackageName()))
-                adapter.notifyDataSetChanged();
-        }
-    }
+//    class MyReceiver extends BroadcastReceiver
+//    {
+//        @Override
+//        public void onReceive(Context context, Intent intent)
+//        {
+//            Toast.makeText(MainActivity.this, "onreceive", Toast.LENGTH_SHORT).show();
+//            if (intent.getAction().equals(getPackageName()))
+//                adapter.notifyDataSetChanged();
+//        }
+//    }
 
-
-    /*@Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==0&&resultCode== Activity.RESULT_OK)
-        {
-            Toast.makeText(MainActivity.this, ""+requestCode, Toast.LENGTH_SHORT).show();
-        }
-        adapter.notifyDataSetChanged();
-    }*/
 }

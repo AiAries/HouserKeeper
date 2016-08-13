@@ -18,14 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.WelcomeActivity">
-        </activity>
+        <activity android:name=".ui.WelcomeActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity
             android:name=".ui.ShowTelTypeActivity"
             android:label="电话大全" />
         <activity android:name=".ui.ShowTelNumActivity" />
+        <activity android:name=".ui.SoftMgrActivity" />
+        <activity android:name=".ui.ShowAllSoftActivity"></activity>
     </application>
 
 </manifest>

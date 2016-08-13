@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/8/8 0008.
@@ -16,17 +16,17 @@ public abstract class MyBaseAdapter<E> extends BaseAdapter {
 
     //把xml布局文件 加工成View 控件
     public LayoutInflater inflater;
-    private ArrayList<E> data;
+    private List<E> data;
 
-    public ArrayList<E> getData() {
+    public List<E> getData() {
         return data;
     }
 
-    public void setData(ArrayList<E> data) {
+    public void setData(List<E> data) {
         this.data = data;
     }
 
-    public MyBaseAdapter(@NonNull ArrayList<E> data, @NonNull Context context) {
+    public MyBaseAdapter(@NonNull List<E> data, @NonNull Context context) {
         this.data = data;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }

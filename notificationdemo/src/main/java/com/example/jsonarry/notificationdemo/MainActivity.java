@@ -145,13 +145,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cancel(View v) {
+        //取消你发送指定id的通知
         manager.cancel(notifyId);
     }
 
     public void cancel_all(View v) {
+        //取消所有你发送的通知
         manager.cancelAll();
     }
-
     /**
      * To set up a PendingIntent that starts a direct entry Activity, follow these steps:
      * 1.Define your application's Activity hierarchy in the manifest.

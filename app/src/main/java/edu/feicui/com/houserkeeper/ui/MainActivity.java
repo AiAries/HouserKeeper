@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 break;
             case R.id.btn_soft_mgr:
-
+                myStartActivity(SoftMgrActivity.class);
                 break;
             case R.id.btn_tel_mgr:
                 myStartActivity(ShowTelTypeActivity.class);

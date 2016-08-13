@@ -48,11 +48,11 @@ public class WelcomeActivity extends BaseActivity {
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
                 //当动画执行完毕，进行一个跳转到主界面
                 myStartActivity(MainActivity.class);
                 //跳转之后，关闭当前界面
                 finish();
-                super.onAnimationEnd(animation);
             }
         });
 //        AnimatorSet set = new AnimatorSet();
