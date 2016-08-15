@@ -10,12 +10,14 @@ import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import edu.feicui.com.houserkeeper.adapter.TelNumAdapter;
-import edu.feicui.com.houserkeeper.db.DBRead;
-import edu.feicui.com.houserkeeper.entity.TelNumInfo;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import edu.feicui.com.houserkeeper.adapter.TelNumAdapter;
+import edu.feicui.com.houserkeeper.db.DBRead;
+import edu.feicui.com.houserkeeper.entity.TelNumInfo;
 
 public class ShowTelNumActivity extends ListActivity implements AdapterView.OnItemClickListener {
 
@@ -47,6 +49,7 @@ public class ShowTelNumActivity extends ListActivity implements AdapterView.OnIt
         TelNumInfo tel = (TelNumInfo) parent.getItemAtPosition(position);
         intent.setData(Uri.parse("tel:" + tel.getTelNum()));
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(ShowTelNumActivity.this, "please open call phone  permission ", Toast.LENGTH_SHORT).show();
             return;
         }
         startActivity(intent);

@@ -17,10 +17,9 @@ import edu.feicui.com.houserkeeper.util.MyAssetManager;
 
 public class ShowTelTypeActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
-    private TelClassAdapter adapter;
-    private ArrayList<TelClassList> data;
     private File file;
-    private ListView listView;
+    private ArrayList<TelClassList> data;
+    private TelClassAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +32,10 @@ public class ShowTelTypeActivity extends BaseActivity implements AdapterView.OnI
     @Override
     public void initView() {
 
-        listView = (ListView) findViewById(R.id.show_tel_class_list_view);
+        ListView listView = (ListView) findViewById(R.id.show_tel_class_list_view);
         //data
-        file = MyAssetManager.copyAssetsFileToSDFile(this);
-        data = DBRead.readTelClassList(file);
+//        file = MyAssetManager.copyAssetsFileToSDFile(this,"db/commonnum.db","commonnum.db");
+        data = new ArrayList<>();
         //create adapter
         adapter = new TelClassAdapter(data, this);
         //设置适配器
@@ -44,7 +43,7 @@ public class ShowTelTypeActivity extends BaseActivity implements AdapterView.OnI
         //设置listview条目点击事件
         listView.setOnItemClickListener(this);
 
-//        new QueryTask().execute();
+        new QueryTask().execute();
     }
 
     @Override
@@ -55,13 +54,13 @@ public class ShowTelTypeActivity extends BaseActivity implements AdapterView.OnI
         Bundle bundle = new Bundle();
         bundle.putSerializable("file", file);
         bundle.putInt("idx", tel.getIdx());
-        myStartActivity(ShowTelNumActivity.class,bundle);
+        myStartActivity(ShowTelNumActivity.class, bundle);
     }
 
     class QueryTask extends AsyncTask<Void, Void, ArrayList<TelClassList>> {
         @Override
         protected ArrayList<TelClassList> doInBackground(Void... params) {
-            file = MyAssetManager.copyAssetsFileToSDFile(ShowTelTypeActivity.this);
+            file = MyAssetManager.copyAssetsFileToSDFile(ShowTelTypeActivity.this, "db/commonnum.db", "commonnum.db");
             return DBRead.readTelClassList(file);
         }
 
@@ -69,9 +68,10 @@ public class ShowTelTypeActivity extends BaseActivity implements AdapterView.OnI
         protected void onPostExecute(ArrayList<TelClassList> telClassLists) {
             //super.onPostExecute(telClassLists);
             if (telClassLists != null)
-                showTestToast("onpostex"+telClassLists.size());
-            data = telClassLists;
-//            adapter.notifyDataSetChanged();
+                //修改适配器中的数据
+                adapter.setData(telClassLists);
+            //刷新ListView中的条目
+            adapter.notifyDataSetChanged();
         }
     }
 

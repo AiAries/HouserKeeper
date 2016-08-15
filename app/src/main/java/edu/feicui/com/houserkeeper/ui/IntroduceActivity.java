@@ -10,19 +10,34 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import edu.feicui.com.houserkeeper.R;
 import edu.feicui.com.houserkeeper.fragment.IntroduceFragment;
+import edu.feicui.com.houserkeeper.util.LogUtil;
+import edu.feicui.com.houserkeeper.util.MyAssetManager;
 
 public class IntroduceActivity extends BaseActivity {
 
+    private static final String TAG = "IntroduceActivity";
     public int[] resIds = {R.mipmap.adware_style_applist,
             R.mipmap.adware_style_banner,
             R.mipmap.adware_style_creditswall};
+    private File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduce);
+        file = MyAssetManager.copyAssetsFileToSDFile(this, "first.txt", "first.txt");
         SharedPreferences jump = getSharedPreferences("jump", Context.MODE_PRIVATE);
         boolean isFirst = jump.getBoolean("isFirst", true);
         if (isFirst) {
@@ -32,6 +47,26 @@ public class IntroduceActivity extends BaseActivity {
             jump(null);
         }
 
+    }
+
+    private boolean isFirstStart() {
+        boolean isFirst = true;
+        try {
+            DataInputStream inputStream = new DataInputStream(new BufferedInputStream(
+                    new FileInputStream(file)
+            ));
+            isFirst = inputStream.readBoolean();
+            if (isFirst) {
+                DataOutputStream first = new DataOutputStream(new BufferedOutputStream(
+                new FileOutputStream(file)));
+                first.writeBoolean(false);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            LogUtil.logD(TAG,e.toString()+e.getMessage());
+        }
+        return isFirst;
     }
 
     public void jump(View view) {

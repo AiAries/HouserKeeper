@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Camera2Basic/Camera2Basic.iml" filepath="$PROJECT_DIR$/Camera2Basic/Camera2Basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/CircularReveal-master/CircularReveal-master.iml" filepath="$PROJECT_DIR$/CircularReveal-master/CircularReveal-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/HouserKeeper.iml" filepath="$PROJECT_DIR$/HouserKeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
@@ -16,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/notificationdemo/notificationdemo.iml" filepath="$PROJECT_DIR$/notificationdemo/notificationdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/package_manager_demo/package_manager_demo.iml" filepath="$PROJECT_DIR$/package_manager_demo/package_manager_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/readdbdata/readdbdata.iml" filepath="$PROJECT_DIR$/readdbdata/readdbdata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui_thread_and_subthread/ui_thread_and_subthread.iml" filepath="$PROJECT_DIR$/ui_thread_and_subthread/ui_thread_and_subthread.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewanimationdemo/viewanimationdemo.iml" filepath="$PROJECT_DIR$/viewanimationdemo/viewanimationdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewpage_fragment/viewpage_fragment.iml" filepath="$PROJECT_DIR$/viewpage_fragment/viewpage_fragment.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewpagerdemo/viewpagerdemo.iml" filepath="$PROJECT_DIR$/viewpagerdemo/viewpagerdemo.iml" />

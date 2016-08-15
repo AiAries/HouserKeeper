@@ -2,10 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.feicui.com.houserkeeper">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <!-- 手机的主题，一改整个界面都改了 -->
     <application
+        android:name=".ui.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,7 +28,7 @@
             android:label="电话大全" />
         <activity android:name=".ui.ShowTelNumActivity" />
         <activity android:name=".ui.SoftMgrActivity" />
-        <activity android:name=".ui.ShowAllSoftActivity"></activity>
+        <activity android:name=".ui.ShowSoftActivity"></activity>
     </application>
 
 </manifest>

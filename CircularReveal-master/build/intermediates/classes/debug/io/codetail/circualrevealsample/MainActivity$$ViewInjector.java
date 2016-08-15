@@ -7,11 +7,11 @@ import butterknife.ButterKnife.Finder;
 public class MainActivity$$ViewInjector {
   public static void inject(Finder finder, final io.codetail.circualrevealsample.MainActivity target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131427434, "field 'mToolbar'");
+    view = finder.findRequiredView(source, 2131427436, "field 'mToolbar'");
     target.mToolbar = (android.support.v7.widget.Toolbar) view;
-    view = finder.findRequiredView(source, 2131427433, "field 'mFloatingButton'");
+    view = finder.findRequiredView(source, 2131427435, "field 'mFloatingButton'");
     target.mFloatingButton = (android.support.design.widget.FloatingActionButton) view;
-    view = finder.findRequiredView(source, 2131427432, "field 'mCardsGroup'");
+    view = finder.findRequiredView(source, 2131427434, "field 'mCardsGroup'");
     target.mCardsGroup = (android.support.v7.widget.RecyclerView) view;
   }
 

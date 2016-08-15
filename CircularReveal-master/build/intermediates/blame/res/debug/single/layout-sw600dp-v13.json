@@ -1,6 +1,6 @@
 [
     {
-        "merged": "S:\\MyApplication\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\layout_snackbar.xml",
-        "source": "S:\\MyApplication\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\design\\22.2.0\\res\\layout-sw600dp\\layout_snackbar.xml"
+        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp-v13\\design_layout_snackbar.xml",
+        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.4.0\\res\\layout-sw600dp-v13\\design_layout_snackbar.xml"
     }
 ]

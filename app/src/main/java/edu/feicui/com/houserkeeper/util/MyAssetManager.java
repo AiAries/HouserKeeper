@@ -18,18 +18,18 @@ public class MyAssetManager {
 
     private static final String TAG = "MyAssetManager";
 
-    public static File  copyAssetsFileToSDFile(Context context)
+    public static File  copyAssetsFileToSDFile(Context context,String from,String into)
     {
         //读取assets中的文件 AssetManager
         AssetManager assets = context.getAssets();
         File file = null;
         try {
             //db/commonnum.db是相对assets目录的相对路径
-            InputStream stream = assets.open("db/commonnum.db");
+            InputStream stream = assets.open(/*db/commonnum.db*/from);
             //把这数据存入到Sd卡中
             //指定数据存放到sdcard中那个文件夹
             File filesDir = context.getFilesDir();//data/data/包名/files
-            file = new File(filesDir,"commonnum.db");
+            file = new File(filesDir,into/*"commonnum.db"*/);
             LogUtil.logD(TAG,file.toString());
             //如果文件存在，就直接返回
             if (file.exists())

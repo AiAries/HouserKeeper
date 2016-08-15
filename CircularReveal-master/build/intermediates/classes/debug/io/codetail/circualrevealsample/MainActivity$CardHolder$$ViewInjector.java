@@ -7,7 +7,7 @@ import butterknife.ButterKnife.Finder;
 public class MainActivity$CardHolder$$ViewInjector {
   public static void inject(Finder finder, final io.codetail.circualrevealsample.MainActivity.CardHolder target, Object source) {
     View view;
-    view = finder.findRequiredView(source, 2131427438, "field 'mCard'");
+    view = finder.findRequiredView(source, 2131427440, "field 'mCard'");
     target.mCard = (android.support.v7.widget.CardView) view;
   }
 

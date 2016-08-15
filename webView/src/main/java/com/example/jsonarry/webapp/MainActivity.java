@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -59,14 +60,13 @@ public class MainActivity extends AppCompatActivity
         webView.loadUrl("http://m.baidu.com/");
 //        webView.loadUrl("http://192.168.1.10:8080/login.html");//failed to do
 //        webView.loadData(url,"text/html",null);// success
-      /*  webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebViewClient(new MyWebViewClient());
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setBuiltInZoomControls(true);//使用内置的缩放装置
-        settings.setDisplayZoomControls(false);*/
-//        settings.
+//        settings.setUseWideViewPort(true);
+//        settings.setLoadWithOverviewMode(true);
+//        settings.setBuiltInZoomControls(true);//使用内置的缩放装置
+//        settings.setDisplayZoomControls(false);
 //        webView.addJavascriptInterface(new WebAppInterface(this), "Android");
 
     }
