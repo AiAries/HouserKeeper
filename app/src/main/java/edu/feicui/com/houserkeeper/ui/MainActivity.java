@@ -1,5 +1,7 @@
 package edu.feicui.com.houserkeeper.ui;
 
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.Menu;
@@ -22,6 +24,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         //初始toolbar，第一，在布局中加上toolbar控件；第二必须在setcontentView之后调用
         initToolBar();
         initView();
+
+        //获取manifest节点meta的数据
+        ApplicationInfo applicationInfo = null;
+        try {
+            applicationInfo = getPackageManager().getApplicationInfo(getPackageName(),
+                    PackageManager.GET_META_DATA |
+                            PackageManager.GET_SHARED_LIBRARY_FILES |
+                            PackageManager.GET_UNINSTALLED_PACKAGES);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        Integer password = (Integer) applicationInfo.metaData.get("password");
+        showToast("meta"+password);
     }
 
     @Override
@@ -85,7 +100,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 break;
             case R.id.btn_rocket:
-
+                myStartActivity(CleanProcessActivity.class);
                 break;
             case R.id.btn_rubbish_clean:
 

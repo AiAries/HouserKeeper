@@ -53,10 +53,10 @@ public class MemoryManager {
 			if (path == null) {
 				return 0;
 			}
-			StatFs stat = new StatFs(path.getPath());
-			long blockSize = stat.getBlockSize();
-			long blockCount = stat.getBlockCount();
-			return blockCount * blockSize;
+//			StatFs stat = new StatFs(path.getPath());
+//			long blockSize = stat.getBlockSize();
+//			long blockCount = stat.getBlockCount();
+			return path.getTotalSpace();
 		} catch (Exception e) {
 			Toast.makeText(context, "外置存储卡异常", Toast.LENGTH_SHORT).show();
 			return 0;
@@ -70,10 +70,10 @@ public class MemoryManager {
 			if (path == null) {
 				return 0;
 			}
-			StatFs stat = new StatFs(path.getPath());
-			long blockSize = stat.getBlockSize();
-			long availaBlock = stat.getAvailableBlocks();
-			return availaBlock * blockSize;
+//			StatFs stat = new StatFs(path.getPath());
+//			long blockSize = stat.getBlockSize();
+//			long availaBlock = stat.getAvailableBlocks();
+			return path.getFreeSpace();
 		} catch (Exception e) {
 			Toast.makeText(context, "外置存储卡异常", Toast.LENGTH_SHORT).show();
 			return 0;
@@ -82,7 +82,7 @@ public class MemoryManager {
 
 	/** 设备自身存储全部大小 单位B */
 	public static long getPhoneSelfSize() {
-//		Environment.get
+		Environment.getExternalStoragePublicDirectory("");
 		File path = Environment.getRootDirectory();
 		StatFs stat = new StatFs(path.getPath());
 		long blockSize = stat.getBlockSize();
@@ -122,10 +122,10 @@ public class MemoryManager {
 			return 0;
 		}
 		File path = Environment.getExternalStorageDirectory();
-		StatFs stat = new StatFs(path.getPath());
-		long blockSize = stat.getBlockSize();
-		long blockCount = stat.getBlockCount();
-		return blockCount * blockSize;
+//		StatFs stat = new StatFs(path.getPath());
+//		long blockSize = stat.getBlockSize();
+//		long blockCount = stat.getBlockCount();
+		return path.getTotalSpace();
 	}
 
 	/** 设备内置存储卡空间大小(手机自带32G存储空间?) 单位B */
@@ -169,22 +169,22 @@ public class MemoryManager {
 	/**获取手机总闲置存储大小*/
 	public static long getPhoneAllFreeSize() {
 		File path = Environment.getRootDirectory();
-		StatFs stat = new StatFs(path.getPath());
-		long blockSize = stat.getBlockSize();
-		long blockCount = stat.getAvailableBlocks();
-		long rootFileSize = blockCount * blockSize;
+//		StatFs stat = new StatFs(path.getPath());
+//		long blockSize = stat.getBlockSize();
+//		long blockCount = stat.getAvailableBlocks();
+		long rootFileSize = path.getFreeSpace();
 
 		path = Environment.getDataDirectory();
-		stat = new StatFs(path.getPath());
-		blockSize = stat.getBlockSize();
-		blockCount = stat.getAvailableBlocks();
-		long dataFileSize = blockCount * blockSize;
+//		stat = new StatFs(path.getPath());
+//		blockSize = stat.getBlockSize();
+//		blockCount = stat.getAvailableBlocks();
+		long dataFileSize = path.getFreeSpace();
 
 		path = Environment.getDownloadCacheDirectory();
-		stat = new StatFs(path.getPath());
-		blockSize = stat.getBlockSize();
-		blockCount = stat.getAvailableBlocks();
-		long cacheFileSize = blockCount * blockSize;
+//		stat = new StatFs(path.getPath());
+//		blockSize = stat.getBlockSize();
+//		blockCount = stat.getAvailableBlocks();
+		long cacheFileSize = path.getFreeSpace();
 
 		return rootFileSize + dataFileSize + cacheFileSize;
 	}
@@ -194,7 +194,7 @@ public class MemoryManager {
 		MemoryInfo info = new MemoryInfo();
 		ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
 		am.getMemoryInfo(info);
-		Log.d(TAG, info.totalMem+"设备总的运行内存");
+		//Log.d(TAG, info.totalMem+"设备总的运行内存");
 		return info.availMem;
 	}
 

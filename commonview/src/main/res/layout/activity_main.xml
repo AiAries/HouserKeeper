@@ -23,7 +23,6 @@
                 android:id="@+id/pb"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:progress="50"
-                android:backgroundTint="@color/colorAccent"
                 android:layout_height="wrap_content"
                 android:indeterminate="false"/>
         <CheckBox
@@ -122,6 +121,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
         </ViewSwitcher>
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/toggle_button"
+            />
+        <android.support.v7.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
     </LinearLayout>
 </ScrollView>
 

@@ -6,12 +6,14 @@
       <module fileurl="file://$PROJECT_DIR$/CircularReveal-master/CircularReveal-master.iml" filepath="$PROJECT_DIR$/CircularReveal-master/CircularReveal-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/HouserKeeper.iml" filepath="$PROJECT_DIR$/HouserKeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/activity_manager_demo/activity_manager_demo.iml" filepath="$PROJECT_DIR$/activity_manager_demo/activity_manager_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app_login/app_login.iml" filepath="$PROJECT_DIR$/app_login/app_login.iml" />
       <module fileurl="file://$PROJECT_DIR$/circualreveal/circualreveal.iml" filepath="$PROJECT_DIR$/circualreveal/circualreveal.iml" />
       <module fileurl="file://$PROJECT_DIR$/common_dialog/common_dialog.iml" filepath="$PROJECT_DIR$/common_dialog/common_dialog.iml" />
       <module fileurl="file://$PROJECT_DIR$/commonview/commonview.iml" filepath="$PROJECT_DIR$/commonview/commonview.iml" />
       <module fileurl="file://$PROJECT_DIR$/frameanim/frameanim.iml" filepath="$PROJECT_DIR$/frameanim/frameanim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/getrunningapp/getrunningapp.iml" filepath="$PROJECT_DIR$/getrunningapp/getrunningapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/mdedia_player_and_service/mdedia_player_and_service.iml" filepath="$PROJECT_DIR$/mdedia_player_and_service/mdedia_player_and_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/mediaplayer_and_service/mediaplayer_and_service.iml" filepath="$PROJECT_DIR$/mediaplayer_and_service/mediaplayer_and_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/notificationdemo/notificationdemo.iml" filepath="$PROJECT_DIR$/notificationdemo/notificationdemo.iml" />

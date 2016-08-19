@@ -15,13 +15,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        new Thread(new MyRunnable()).start();
+
 //        new MyDownloadTask().execute();
     }
 
     public void click(View view) {
-        view.setEnabled(false);
-        new MyDownloadTask().execute();
+
+        MyDialogFrament dialogFrament = new MyDialogFrament();
+        dialogFrament.show(getSupportFragmentManager(),"tag");
+//        view.post(new MyRunnable());
+//        view.postDelayed(new MyRunnable(),2000);
+//        new Thread(new MyRunnable()).start();
+//        view.setEnabled(false);
+//        new MyDownloadTask().execute();
 //        try {
 //            Thread.sleep(10000);
 //            Toast.makeText(MainActivity.this, "下载完成", Toast.LENGTH_SHORT).show();
@@ -54,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.show();
     }
 
+    //第一个参数，通常是下载地址的url
+    //第二个参数，通常是最大进度值
+    //第三个参数，就是返回值类型
     class MyDownloadTask extends AsyncTask<Void, Integer, String> {
 
         @Override

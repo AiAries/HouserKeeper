@@ -2,6 +2,7 @@ package edu.feicui.com.houserkeeper.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,25 +31,33 @@ public class SoftMgrActivity extends BaseActivity implements View.OnClickListene
         ProgressBar pb_phone_extral_space = (ProgressBar) findViewById(R.id.pb_phone_extral_space);
         ProgressBar pb_phone_internal_space = (ProgressBar) findViewById(R.id.pb_phone_internal_space);
         //获取外部sd卡存储空间的总值
-        long outSDCardSize = MemoryManager.getPhoneOutSDCardSize(this)/1024/1024;
+        long outSDCardSize = MemoryManager.getPhoneOutSDCardSize(this);
         //给progressBar设置最大值
         pb_phone_extral_space.setMax((int) outSDCardSize);
         //获取手机外部sd卡可以用存储空间  byte
-        long outSDCardFreeSize = MemoryManager.getPhoneOutSDCardFreeSize(this)/1024/1024;
-        pb_phone_extral_space.setProgress((int) (outSDCardSize-outSDCardFreeSize));
+        long outSDCardFreeSize = MemoryManager.getPhoneOutSDCardFreeSize(this);
+        //内置Sdcard 使用掉的内存
+        int useSize = (int) (outSDCardSize-outSDCardFreeSize);
+        pb_phone_extral_space.setProgress(useSize);
+
+        String totalSize = Formatter.formatFileSize(this, outSDCardSize);
+        String use = Formatter.formatFileSize(this, useSize);
         TextView tv_out = (TextView) findViewById(R.id.tv_out);
-        tv_out.setText(outSDCardSize-outSDCardFreeSize+"/"+outSDCardSize+"M");
+        tv_out.setText(use+"/"+totalSize);
 
 
         //获取内置sd卡的数据
-        long selfSDCardSize = MemoryManager.getPhoneSelfSDCardSize()/1024/1024;
-        long selfSDCardFreeSize = MemoryManager.getPhoneSelfSDCardFreeSize()/1024/1024;
+        long selfSDCardSize = MemoryManager.getPhoneSelfSDCardSize();
+        long selfSDCardFreeSize = MemoryManager.getPhoneSelfSDCardFreeSize();
 
         pb_phone_internal_space.setMax((int) selfSDCardSize);
         int progress = (int) (selfSDCardSize - selfSDCardFreeSize);
         pb_phone_internal_space.setProgress(progress);
+
+        String interSdSize = Formatter.formatFileSize(this, selfSDCardSize);
+        String interSdUseSize = Formatter.formatFileSize(this, progress);
         TextView tv_internal = (TextView) findViewById(R.id.tv_internal);
-        tv_internal.setText(progress+"/"+selfSDCardSize+"M");
+        tv_internal.setText(interSdUseSize+"/"+interSdSize);
 
     }
 

@@ -77,11 +77,7 @@ public class WelcomeActivity extends BaseActivity {
                 finish();
             }
         });
-//        AnimatorSet set = new AnimatorSet();
-//        set.playSequentially(translationAnima);
-//        set.setTarget(iv);
-//        set.setDuration(2000);
-//        set.start();
+
         set.start();
     }
 }
