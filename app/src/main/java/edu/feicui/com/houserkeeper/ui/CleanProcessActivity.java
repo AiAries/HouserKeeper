@@ -143,8 +143,10 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                 setMemoryInfo();
                 break;
             case R.id.btn_show_process:
+                //获取按钮上的文件
                 Button b = (Button) v;
                 String text = (String) b.getText();
+                //存放用户或者系统两者之一的进程
                 List<RunningAppInfo> process = new ArrayList<>();
                 if (text.equals(getString(R.string.speedup_show_sysapp))) {
                     for (RunningAppInfo runningAppInfo : runningAppInfos) {
@@ -165,8 +167,9 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                     }
                     b.setText(R.string.speedup_show_sysapp);
                 }
-
+                //修改数据
                 appAdapter.setData(process);
+                //刷新list列表
                 appAdapter.notifyDataSetChanged();
                 break;
         }

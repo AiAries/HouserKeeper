@@ -49,15 +49,16 @@ public class MyAppProcessAdapter extends MyBaseAdapter<RunningAppInfo> {
         vh.appType.setText(runningAppInfo.isSysApp()?"系统进程":"用户进程");
 
         //给checkbox设置是否选中状态
-        vh.checkBox.setTag(runningAppInfo);
         vh.checkBox.setChecked(runningAppInfo.isSelect());
+        //给当前的checkbox绑定数据对象
+        vh.checkBox.setTag(runningAppInfo);
         vh.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //                 CheckBox cb = (CheckBox) buttonView;
+                //获取之前绑定的数据对象，修改就不会出问题，
                 RunningAppInfo appInfo = (RunningAppInfo) vh.checkBox.getTag();
                 appInfo.setSelect(isChecked);
-//                }
             }
         });
         return convertView ;
