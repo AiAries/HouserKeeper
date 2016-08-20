@@ -31,6 +31,9 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
 
     private ActivityManager activityManager;
     private MyAppProcessAdapter appAdapter;
+    private List<RunningAppInfo> runningAppInfos;
+    private TextView tv_memeory;
+    private ProgressBar pb_memory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +50,11 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
         //找到控件对象
         TextView tv_brand = (TextView) findViewById(R.id.tv_brand);
         TextView tv_phone_type = (TextView) findViewById(R.id.tv_phone_type);
-        TextView tv_memeory = (TextView) findViewById(R.id.tv_memeory);
+        tv_memeory = (TextView) findViewById(R.id.tv_memeory);
         Button btn_show_process = (Button) findViewById(R.id.btn_show_process);
         ListView listView = (ListView) findViewById(R.id.listview_process);
         ProgressBar pb = (ProgressBar) findViewById(R.id.pb);
-        ProgressBar pb_memory = (ProgressBar) findViewById(R.id.pb_phone_memory_use_rate);
+        pb_memory = (ProgressBar) findViewById(R.id.pb_phone_memory_use_rate);
 
         //初始事件
         btn_show_process.setOnClickListener(this);
@@ -61,32 +64,25 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         //当checkbox被点击的时候回调此方法
-
+                        //让所有的条目勾选中
+                        //得到适配器中所有的数据
+                        List<RunningAppInfo> data = appAdapter.getData();
+                        for (RunningAppInfo runningAppInfo : data) {
+                            //把所有条目是否选中的属性，改成true
+                            runningAppInfo.setSelect(isChecked);
+                        }
+                        appAdapter.notifyDataSetChanged();
                     }
                 }
         );
-
-        //准备数据
-        //品牌，手机型号
-        String brand = Build.BRAND;
-        String type = Build.MODEL + getPhoneSystemVersion();
-        //手机总内存，使用掉的内存
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        activityManager.getMemoryInfo(memoryInfo);
-        long totalMem = memoryInfo.totalMem;
-        long availMem = memoryInfo.availMem;
-        String strTotalMem = Formatter.formatFileSize(this, totalMem);
-        String strUseMem = Formatter.formatFileSize(this, totalMem-availMem);
-
 
         //初始化 listview要展示的数据
         //解决兼容性问题，21以上用第三方写的ProcessManager，21以下用android自带的
         //判断版本号,先获取系统的版本号
         int sdkInt = Build.VERSION.SDK_INT;
-        List<RunningAppInfo> runningAppInfos;
         if (sdkInt >= 21) {
             //解决5.0没有的效果
-            runningAppInfos= getRunningAppInfo21();
+            runningAppInfos = getRunningAppInfo21();
         } else {
             runningAppInfos = getRunningAppInfo();
         }
@@ -94,26 +90,91 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
         appAdapter = new MyAppProcessAdapter(runningAppInfos, this);
         listView.setAdapter(appAdapter);
 
-        //绑定数据
+        //品牌，手机型号
+        String brand = Build.BRAND;
+        String type = Build.MODEL + getPhoneSystemVersion();
         tv_brand.setText(brand);
         tv_phone_type.setText(type);
-        tv_memeory.setText(strUseMem+"/"+strTotalMem);
 
+        //设置内存显示信息
+        setMemoryInfo();
+    }
+
+    private void setMemoryInfo() {
+        //手机总内存，使用掉的内存
+        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+        activityManager.getMemoryInfo(memoryInfo);
+        //版本低于16没有效果，这里不考虑
+        long totalMem = memoryInfo.totalMem;
+        long availMem = memoryInfo.availMem;
+        String strTotalMem = Formatter.formatFileSize(this, totalMem);
+        String strUseMem = Formatter.formatFileSize(this, totalMem - availMem);
+        tv_memeory.setText(strUseMem + "/" + strTotalMem);
         pb_memory.setMax((int) (totalMem));
-        pb_memory.setProgress((int) ((totalMem-availMem)));
+        pb_memory.setProgress((int) ((totalMem - availMem)));
     }
 
     private String getPhoneSystemVersion() {
-       return /*Build.VERSION.CODENAME+*/
-        Build.VERSION.RELEASE;
+        return /*Build.VERSION.CODENAME+*/
+                Build.VERSION.RELEASE;
     }
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_clean_process:
+                //存放杀死的进程
+                List<RunningAppInfo> killedProcess = new ArrayList<>();
+                if (runningAppInfos != null) {
+                    for (int i = 0; i < runningAppInfos.size(); i++) {
+                        RunningAppInfo runningAppInfo = runningAppInfos.get(i);
+                        boolean select = runningAppInfo.isSelect();
+                        if (select) {
+                            activityManager.killBackgroundProcesses(runningAppInfo.getPackageName());
+                            killedProcess.add(runningAppInfo);
+                        }
+                    }
+                }
+                //杀死进程后，把被杀死的进程从集合中移除
+                runningAppInfos.removeAll(killedProcess);
+                //当数据发生变化时，可以刷新listview列表
+                appAdapter.notifyDataSetChanged();
+                //更新进度条还有文字
+                setMemoryInfo();
+                break;
+            case R.id.btn_show_process:
+                Button b = (Button) v;
+                String text = (String) b.getText();
+                List<RunningAppInfo> process = new ArrayList<>();
+                if (text.equals(getString(R.string.speedup_show_sysapp))) {
+                    for (RunningAppInfo runningAppInfo : runningAppInfos) {
+                        boolean isSysApp = runningAppInfo.isSysApp();
+                        if (isSysApp) {
+                            //是系统的进程
+                            process.add(runningAppInfo);
+                        }
+                    }
+                    b.setText(R.string.speedup_show_userapp);
+                } else if (text.equals(getString(R.string.speedup_show_userapp))){
+                    for (RunningAppInfo runningAppInfo : runningAppInfos) {
+                        boolean isSysApp = runningAppInfo.isSysApp();
+                        if (!isSysApp) {
+                            //是用户的进程
+                            process.add(runningAppInfo);
+                        }
+                    }
+                    b.setText(R.string.speedup_show_sysapp);
+                }
 
+                appAdapter.setData(process);
+                appAdapter.notifyDataSetChanged();
+                break;
+        }
     }
+
     /**
-     *  //解决5.0没有的效果
+     * //解决5.0没有的效果
+     *
      * @return
      */
     public List<RunningAppInfo> getRunningAppInfo21() {
@@ -126,7 +187,7 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
             AndroidAppProcess appProcess = iterator.next();
             int pid = appProcess.pid;//进程唯一标识
             String processName = appProcess.getPackageName();//包名，进程名
-//            int importance = appProcess.ge;//获取进程的类别（前台，可见，后台，等等）
+//            int importance = appProcess.i;//获取进程的类别（前台，可见，后台，等等）
 
             //获取进程所占内存的大小
             Debug.MemoryInfo[] processMemoryInfo = activityManager.getProcessMemoryInfo(new int[]{pid});
@@ -147,7 +208,7 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                 //判断该进程是用户的还是系统的
                 boolean isSysApp = (packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1;
 
-                RunningAppInfo runningAppInfo = new RunningAppInfo(label,processName, memorySize, drawable, isSysApp, 0);
+                RunningAppInfo runningAppInfo = new RunningAppInfo(label, processName, memorySize, drawable, isSysApp, 0);
                 //将该对象保存到集合中
                 runningAppInfos.add(runningAppInfo);
             } catch (PackageManager.NameNotFoundException e) {
@@ -167,8 +228,9 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
             ActivityManager.RunningAppProcessInfo appProcess = iterator.next();
             int pid = appProcess.pid;//进程唯一标识
             String processName = appProcess.processName;//包名，进程名
-//            int importance = appProcess.ge;//获取进程的类别（前台，可见，后台，等等）
-
+            int importance = appProcess.importance;//获取进程的类别（前台，可见，后台，等等）
+            if (importance < ActivityManager.RunningAppProcessInfo.IMPORTANCE_SERVICE)
+                continue;
             //获取进程所占内存的大小
             Debug.MemoryInfo[] processMemoryInfo = activityManager.getProcessMemoryInfo(new int[]{pid});
             Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
@@ -188,7 +250,7 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                 //判断该进程是用户的还是系统的
                 boolean isSysApp = (packageInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) == 1;
 
-                RunningAppInfo runningAppInfo = new RunningAppInfo(label,processName, memorySize, drawable, isSysApp, 0);
+                RunningAppInfo runningAppInfo = new RunningAppInfo(label, processName, memorySize, drawable, isSysApp, importance);
                 //将该对象保存到集合中
                 runningAppInfos.add(runningAppInfo);
             } catch (PackageManager.NameNotFoundException e) {

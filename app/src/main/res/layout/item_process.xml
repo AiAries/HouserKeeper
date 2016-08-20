@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/activity_horizontal_margin"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     >
     <CheckBox
         android:layout_gravity="center"

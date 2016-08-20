@@ -8,7 +8,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -20,16 +19,14 @@ import edu.feicui.com.houserkeeper.entity.RunningAppInfo;
  */
 public class MyAppProcessAdapter extends MyBaseAdapter<RunningAppInfo> {
 
-    private final Context context;
 
     public MyAppProcessAdapter(@NonNull List<RunningAppInfo> data, @NonNull Context context) {
         super(data, context);
-        this.context=context;
     }
 
     @Override
     public View MyGetView(final int position, View convertView, ViewGroup parent) {
-        VH vh;
+        final VH vh;
         if (convertView == null) {
             //把布局文件渲染成一个View
             convertView = inflater.inflate(R.layout.item_process, null);
@@ -52,14 +49,14 @@ public class MyAppProcessAdapter extends MyBaseAdapter<RunningAppInfo> {
         vh.appType.setText(runningAppInfo.isSysApp()?"系统进程":"用户进程");
 
         //给checkbox设置是否选中状态
+        vh.checkBox.setTag(runningAppInfo);
         vh.checkBox.setChecked(runningAppInfo.isSelect());
         vh.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                if (isChecked) {
-                    runningAppInfo.setSelect(isChecked);
-//                    getData().set(position, runningAppInfo);
-                    Toast.makeText(context, ""+position, Toast.LENGTH_SHORT).show();
+//                 CheckBox cb = (CheckBox) buttonView;
+                RunningAppInfo appInfo = (RunningAppInfo) vh.checkBox.getTag();
+                appInfo.setSelect(isChecked);
 //                }
             }
         });
