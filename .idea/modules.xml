@@ -18,6 +18,7 @@
       <module fileurl="file://$PROJECT_DIR$/mediaplayer_and_service/mediaplayer_and_service.iml" filepath="$PROJECT_DIR$/mediaplayer_and_service/mediaplayer_and_service.iml" />
       <module fileurl="file://$PROJECT_DIR$/notificationdemo/notificationdemo.iml" filepath="$PROJECT_DIR$/notificationdemo/notificationdemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/package_manager_demo/package_manager_demo.iml" filepath="$PROJECT_DIR$/package_manager_demo/package_manager_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pie_chart/pie_chart.iml" filepath="$PROJECT_DIR$/pie_chart/pie_chart.iml" />
       <module fileurl="file://$PROJECT_DIR$/readdbdata/readdbdata.iml" filepath="$PROJECT_DIR$/readdbdata/readdbdata.iml" />
       <module fileurl="file://$PROJECT_DIR$/ui_thread_and_subthread/ui_thread_and_subthread.iml" filepath="$PROJECT_DIR$/ui_thread_and_subthread/ui_thread_and_subthread.iml" />
       <module fileurl="file://$PROJECT_DIR$/viewanimationdemo/viewanimationdemo.iml" filepath="$PROJECT_DIR$/viewanimationdemo/viewanimationdemo.iml" />

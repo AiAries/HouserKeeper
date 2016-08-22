@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -20,8 +21,11 @@ import edu.feicui.com.houserkeeper.entity.RunningAppInfo;
 public class MyAppProcessAdapter extends MyBaseAdapter<RunningAppInfo> {
 
 
+    private final Context context;
+
     public MyAppProcessAdapter(@NonNull List<RunningAppInfo> data, @NonNull Context context) {
         super(data, context);
+        this.context = context;
     }
 
     @Override
@@ -48,16 +52,18 @@ public class MyAppProcessAdapter extends MyBaseAdapter<RunningAppInfo> {
         vh.memorySize.setText(String.format("内存：%s",runningAppInfo.getMemorySize()));
         vh.appType.setText(runningAppInfo.isSysApp()?"系统进程":"用户进程");
 
+        Toast.makeText(context, "----"+position, Toast.LENGTH_SHORT).show();
+        //给当前的checkbox绑定数据对象，保存checkbox勾选的状态
+        vh.checkBox.setTag(runningAppInfo);
         //给checkbox设置是否选中状态
         vh.checkBox.setChecked(runningAppInfo.isSelect());
-        //给当前的checkbox绑定数据对象
-        vh.checkBox.setTag(runningAppInfo);
         vh.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//                 CheckBox cb = (CheckBox) buttonView;
+
+                CheckBox cb = (CheckBox) buttonView;
                 //获取之前绑定的数据对象，修改就不会出问题，
-                RunningAppInfo appInfo = (RunningAppInfo) vh.checkBox.getTag();
+                RunningAppInfo appInfo = (RunningAppInfo) cb.getTag();
                 appInfo.setSelect(isChecked);
             }
         });

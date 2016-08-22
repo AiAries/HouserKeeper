@@ -2,10 +2,13 @@ package edu.feicui.com.houserkeeper.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.format.Formatter;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.io.File;
 
 import edu.feicui.com.houserkeeper.R;
 import edu.feicui.com.houserkeeper.biz.MemoryManager;
@@ -46,19 +49,36 @@ public class SoftMgrActivity extends BaseActivity implements View.OnClickListene
         tv_out.setText(use+"/"+totalSize);
 
 
-        //获取内置sd卡的数据
-        long selfSDCardSize = MemoryManager.getPhoneSelfSDCardSize();
-        long selfSDCardFreeSize = MemoryManager.getPhoneSelfSDCardFreeSize();
+//        //获取内置sd卡的数据
+//        long selfSDCardSize = MemoryManager.getPhoneSelfSDCardSize();
+//        long selfSDCardFreeSize = MemoryManager.getPhoneSelfSDCardFreeSize();
+        //机身的总存储空间
+        long phoneSelfTotalSize =  getPhoneSelfTotalSize();
+        //手机已经使用掉的存储空间
+        long phoneSelfUsedSize =  getPhoneSelfUsedSize();
 
-        pb_phone_internal_space.setMax((int) selfSDCardSize);
-        int progress = (int) (selfSDCardSize - selfSDCardFreeSize);
+        pb_phone_internal_space.setMax((int) phoneSelfTotalSize);
+        int progress = (int) phoneSelfUsedSize;
         pb_phone_internal_space.setProgress(progress);
 
-        String interSdSize = Formatter.formatFileSize(this, selfSDCardSize);
-        String interSdUseSize = Formatter.formatFileSize(this, progress);
+        String interSdSize = Formatter.formatFileSize(this, phoneSelfTotalSize);
+        String interSdUseSize = Formatter.formatFileSize(this, phoneSelfUsedSize);
         TextView tv_internal = (TextView) findViewById(R.id.tv_internal);
         tv_internal.setText(interSdUseSize+"/"+interSdSize);
 
+    }
+
+    private long getPhoneSelfTotalSize() {
+        File rootDirectory = Environment.getRootDirectory();//system目录
+        File dataDirectory = Environment.getDataDirectory();//assest  db 文件
+        File downloadCacheDirectory = Environment.getDownloadCacheDirectory();//下载缓存目录
+        return rootDirectory.getTotalSpace()+dataDirectory.getTotalSpace()+downloadCacheDirectory.getTotalSpace();
+    }
+    private long getPhoneSelfUsedSize() {
+        File rootDirectory = Environment.getRootDirectory();//system目录
+        File dataDirectory = Environment.getDataDirectory();//assest  db 文件
+        File downloadCacheDirectory = Environment.getDownloadCacheDirectory();//下载缓存目录
+        return rootDirectory.getUsableSpace()+dataDirectory.getUsableSpace()+downloadCacheDirectory.getUsableSpace();
     }
 
     @Override

@@ -9,7 +9,7 @@ public class RunningAppInfo {
 
     String packageName;//进程名，包名
     String label;//标签名
-    boolean isSelect;
+    boolean isSelect;//是否勾选中checkbox
 
     public boolean isSelect() {
         return isSelect;

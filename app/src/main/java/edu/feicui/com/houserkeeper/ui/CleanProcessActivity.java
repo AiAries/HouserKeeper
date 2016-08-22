@@ -68,7 +68,7 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                         //得到适配器中所有的数据
                         List<RunningAppInfo> data = appAdapter.getData();
                         for (RunningAppInfo runningAppInfo : data) {
-                            //把所有条目是否选中的属性，改成true
+                            //把所有条目是否选中的属性，改成trueOrfalse
                             runningAppInfo.setSelect(isChecked);
                         }
                         appAdapter.notifyDataSetChanged();
@@ -146,9 +146,11 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                 //获取按钮上的文件
                 Button b = (Button) v;
                 String text = (String) b.getText();
-                //存放用户或者系统两者之一的进程
+
                 List<RunningAppInfo> process = new ArrayList<>();
-                if (text.equals(getString(R.string.speedup_show_sysapp))) {
+                boolean isShowSysApp = text.equals(getString(R.string.speedup_show_sysapp));
+                //isShowSysApp 为true存放系统进程，否则存放用户进程
+                if (isShowSysApp) {
                     for (RunningAppInfo runningAppInfo : runningAppInfos) {
                         boolean isSysApp = runningAppInfo.isSysApp();
                         if (isSysApp) {
@@ -156,8 +158,7 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                             process.add(runningAppInfo);
                         }
                     }
-                    b.setText(R.string.speedup_show_userapp);
-                } else if (text.equals(getString(R.string.speedup_show_userapp))){
+                } else if (!isShowSysApp){
                     for (RunningAppInfo runningAppInfo : runningAppInfos) {
                         boolean isSysApp = runningAppInfo.isSysApp();
                         if (!isSysApp) {
@@ -165,8 +166,10 @@ public class CleanProcessActivity extends BaseActivity implements View.OnClickLi
                             process.add(runningAppInfo);
                         }
                     }
-                    b.setText(R.string.speedup_show_sysapp);
                 }
+                //改变按钮文字
+                b.setText(isShowSysApp?R.string.speedup_show_sysapp
+                                    :R.string.speedup_show_userapp);
                 //修改数据
                 appAdapter.setData(process);
                 //刷新list列表
