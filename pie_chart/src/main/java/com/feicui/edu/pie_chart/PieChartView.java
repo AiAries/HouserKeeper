@@ -42,6 +42,7 @@ public class PieChartView extends View {
 
         initPaint();
         rectF = new RectF(0,0,200,200);
+        a.recycle();
     }
 
     private void initPaint() {
