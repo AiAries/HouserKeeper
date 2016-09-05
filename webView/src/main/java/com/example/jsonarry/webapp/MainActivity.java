@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity
         settings.setJavaScriptEnabled(true);
 //        settings.setUseWideViewPort(true);
 //        settings.setLoadWithOverviewMode(true);
-//        settings.setBuiltInZoomControls(true);//使用内置的缩放装置
+        settings.setBuiltInZoomControls(true);//使用内置的缩放装置
 //        settings.setDisplayZoomControls(false);
 //        webView.addJavascriptInterface(new WebAppInterface(this), "Android");
 
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
             // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);*/
-            return false;
+            return true;
         }
     }
 }

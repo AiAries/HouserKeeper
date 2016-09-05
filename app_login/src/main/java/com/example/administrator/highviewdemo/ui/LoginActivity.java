@@ -91,7 +91,8 @@ public class LoginActivity extends AppCompatActivity {
     public void register(View v)
 	{
 //        startActivity(new Intent(this,RegisterActivity.class));
-        startActivityForResult(new Intent(this,RegisterActivity.class), MAIN_REQUEST_CODE);
+        Intent intent = new Intent(this, RegisterActivity.class);
+        startActivityForResult(intent, MAIN_REQUEST_CODE);
 	}
 
 

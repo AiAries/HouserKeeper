@@ -33,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Intent data = new Intent();
                     data.putExtra("username",et_un.getText().toString());
                     setResult(Activity.RESULT_OK,data);
+                    //结束当前Activity
                     finish();
                 }
                 else
