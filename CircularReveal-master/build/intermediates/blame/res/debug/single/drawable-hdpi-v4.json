@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
-    },
-    {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
@@ -20,28 +20,28 @@
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
-        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_refresh_white_24dp.png",
-        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\src\\main\\res\\drawable-hdpi\\ic_refresh_white_24dp.png"
+        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png",
+        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png",
-        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_36dp.png"
+        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_refresh_white_24dp.png",
+        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\src\\main\\res\\drawable-hdpi\\ic_refresh_white_24dp.png"
     },
     {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
-    },
-    {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png",
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
@@ -76,12 +76,12 @@
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
-        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
         "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "D:\\workspace\\HouserKeeper\\CircularReveal-master\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
